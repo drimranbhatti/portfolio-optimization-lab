@@ -1,6 +1,6 @@
 # Portfolio Optimization Lab
 
-Portfolio construction methods implemented from scratch and compared in a **walk-forward backtest with transaction costs**. Covers Markowitz, Black-Litterman, Kelly sizing, risk parity, Hierarchical Risk Parity and random-matrix-theory covariance denoising.
+Portfolio construction methods implemented from scratch and compared in a **walk-forward backtest with transaction costs**. Covers Markowitz, Black-Litterman, Kelly sizing, risk parity, Hierarchical Risk Parity, random-matrix-theory covariance denoising and autoencoder "deep portfolios".
 
 ![Walk-forward backtest](images/backtest_equity_curves.png)
 
@@ -23,6 +23,7 @@ Portfolio construction methods implemented from scratch and compared in a **walk
 | 3 | [Kelly & leverage](notebooks/03_kelly_criterion_and_leverage.ipynb) | Growth-vs-leverage curve, half Kelly, 10-year terminal-wealth Monte Carlo |
 | 4 | [Walk-forward backtest](notebooks/04_walk_forward_backtest.ipynb) | 7 strategies vs SPY, net of 5 bp costs, 2014-2026 |
 | 5 | [Utility, risk aversion & VaR](notebooks/05_utility_risk_aversion_and_var.ipynb) | Certainty equivalents, CARA vs CRRA, the optimal risky share, VaR vs ES (and why VaR fails subadditivity), and converting a VaR limit into an implied risk aversion |
+| 6 | [Autoencoder deep portfolios](notebooks/06_autoencoder_deep_portfolios.ipynb) | Sparse autoencoder vs PCA on 40 large caps (2013-2026): the network matches PCA (45% of variance out of sample), and "most communal" stock selection tracks SPY *worse* than random picks. Explains why |
 
 <p float="left">
   <img src="images/denoise_detone.png" width="64%" />
@@ -51,7 +52,7 @@ git clone https://github.com/drimranbhatti/portfolio-optimization-lab.git
 cd portfolio-optimization-lab
 pip install -e ".[notebooks,dev]"
 pytest                               # 9 tests
-python scripts/fetch_prices.py       # optional: refresh data/prices.csv
+python scripts/fetch_prices.py       # optional: refresh the price snapshots in data/
 jupyter lab notebooks/
 ```
 
@@ -71,7 +72,7 @@ backtest.performance(bt["ret"])
 Tests check that unconstrained min-variance equals the closed-form solution; risk-parity contributions come out equal; HRP reduces to inverse-variance for a diagonal matrix; denoising keeps variances and positive-definiteness; Black-Litterman returns the prior when views agree with equilibrium; fractional Kelly scales linearly; and transaction costs reduce returns.
 
 ## References
-Markowitz (1952) · Black & Litterman (1992) · He & Litterman (1999) · Kelly (1956) · Thorp (2006) · Maillard, Roncalli & Teiletche (2010) · Lopez de Prado (2016, 2020) · Ledoit & Wolf (2004) · Marcenko & Pastur (1967)
+Markowitz (1952) · Black & Litterman (1992) · He & Litterman (1999) · Kelly (1956) · Thorp (2006) · Maillard, Roncalli & Teiletche (2010) · Lopez de Prado (2016, 2020) · Ledoit & Wolf (2004) · Marcenko & Pastur (1967) · Heaton, Polson & Witte, *Deep learning for finance: deep portfolios* (2017)
 
 ---
 **Author:** Dr. Muhammad Imran Bhatti, PhD (Finance), MScFE · FCMA · [LinkedIn](https://www.linkedin.com/in/drimranbhatti) · [imranbhatti.com](https://imranbhatti.com)
