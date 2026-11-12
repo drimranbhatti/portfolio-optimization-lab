@@ -22,6 +22,7 @@ Portfolio construction methods implemented from scratch and compared in a **walk
 | 2 | [Denoising & HRP](notebooks/02_covariance_denoising_and_hrp.ipynb) | Marcenko-Pastur fit, denoised/detoned clustered correlations, HRP vs min-variance concentration |
 | 3 | [Kelly & leverage](notebooks/03_kelly_criterion_and_leverage.ipynb) | Growth-vs-leverage curve, half Kelly, 10-year terminal-wealth Monte Carlo |
 | 4 | [Walk-forward backtest](notebooks/04_walk_forward_backtest.ipynb) | 7 strategies vs SPY, net of 5 bp costs, 2014-2026 |
+| 5 | [Utility, risk aversion & VaR](notebooks/05_utility_risk_aversion_and_var.ipynb) | Certainty equivalents, CARA vs CRRA, the optimal risky share, VaR vs ES (and why VaR fails subadditivity), and converting a VaR limit into an implied risk aversion |
 
 <p float="left">
   <img src="images/denoise_detone.png" width="64%" />
